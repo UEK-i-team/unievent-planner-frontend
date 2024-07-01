@@ -5,16 +5,8 @@
       2,
       "always",
       [
-        "ci",
-        "chore",
-        "docs",
-        "ticket",
         "feat",
-        "fix",
-        "perf",
-        "refactor",
-        "revert",
-        "style"
+        "fix"
       ]
     ]
   }
