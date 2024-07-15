@@ -1,11 +1,5 @@
-import React from 'react';
-
-function App() {
-  return (
-    <div className="App">
-      <h1>UniPlanner</h1>
-    </div>
-  );
-}
+const App = () => {
+  return <h1>Univent Planner</h1>
+};
 
 export default App;
