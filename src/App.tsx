@@ -1,5 +1,13 @@
+import React from 'react';
+import { CssBaseline } from '@mui/material';
+import { ManageUsers } from './manageUsers/manageUsers';
 const App = () => {
-  return <h1>Univent Planner</h1>
+  return (
+    <>
+      <CssBaseline />
+      <ManageUsers />
+    </>
+  );
 };
 
 export default App;
