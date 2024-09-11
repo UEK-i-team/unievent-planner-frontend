@@ -1,5 +1,7 @@
-import { Box, Button, IconButton, Input } from '@mui/material';
-import { styled } from '@mui/system';
+import { Box, Button, IconButton, Input, Typography } from '@mui/material';
+import {styled }from 'styled-components';
+
+
 
 export const Wrapper = styled(Box)`
   display: flex;
@@ -50,7 +52,7 @@ export const GroupCodeField = styled(Input)`
   &::after {
     border-bottom: none !important;
   }
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.underline_grey};
   @media (max-width: 600px) {
     width: 40px;
     height: 40px;
@@ -62,10 +64,10 @@ export const GroupCodeField = styled(Input)`
 `;
 
 export const JoinButton = styled(Button)`
-  background-color: #ff3b30;
+  background-color: ${({ theme }) => theme.colors.button_red} !important;
   color: white;
   &:hover {
-    background-color: #e6392e;
+    background-color: ${({ theme }) => theme.colors.button_red} !important;
   }
   margin: 55px 0 15px;
   padding: 16px 0;
@@ -80,9 +82,10 @@ export const JoinButton = styled(Button)`
 `;
 
 export const CreateGroupButton = styled(Button)`
-  border: 1px solid #c4c4c4;
+  border: 1px solid ${({ theme }) => theme.colors.border_grey} !important;
   padding: 16px 0;
   font-size: 18px;
+  color: ${({ theme }) => theme.colors.black_100} !important;
   border-radius: 8px;
   width: 100%;
   color: black;
@@ -122,4 +125,10 @@ export const Logo = styled('img')`
   @media (max-width: 600px) {
     margin-bottom: 8px;
   }
+`;
+
+export const StyledTypography = styled(Typography)`
+  color: ${({ theme }) => theme.colors.light_grey};
+  margin-left: auto;
+  margin-right: 0;
 `;

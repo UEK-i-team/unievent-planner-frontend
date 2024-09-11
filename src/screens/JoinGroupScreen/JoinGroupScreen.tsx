@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Wrapper, Content, GroupCodeInput, GroupCodeField, JoinButton, CreateGroupButton, BackButton, SvgContainer, Logo } from './JoinGroupScreenStyles';
+import { Wrapper, Content, GroupCodeInput, GroupCodeField, JoinButton, CreateGroupButton, BackButton, SvgContainer, Logo, StyledTypography } from './JoinGroupScreenStyles';
 
 const JoinGroup = () => {
   return (
@@ -25,11 +25,11 @@ const JoinGroup = () => {
           <GroupCodeField inputProps={{ maxLength: 1 }} />
           <GroupCodeField inputProps={{ maxLength: 1 }} />
         </GroupCodeInput>
-        <Typography variant="body1" display="block" sx={{ color: '#BBBBBB', marginLeft: 'auto', marginRight: '0' }} gutterBottom>
+        <StyledTypography variant="body1"  gutterBottom>
           Czym jest kod grupy?
-        </Typography>
+        </StyledTypography>
         <JoinButton variant="contained">Dołącz do grupy</JoinButton>
-        <Typography variant="body1" sx={{ color: "#BBBBBB" }}>lub</Typography>
+        <StyledTypography variant="body1" >lub</StyledTypography>
         <CreateGroupButton variant="outlined">Utwórz grupę</CreateGroupButton>
       </Content>
     </Wrapper>
