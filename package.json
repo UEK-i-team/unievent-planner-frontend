@@ -6,7 +6,10 @@
   "scripts": {
     "start": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "check-branch-name": "chmod 755 ./.husky/hooks/check-branch-naming.sh && sh ./.husky/hooks/check-branch-naming.sh",
+    "format": "prettier --write \"src/**/*.{ts,tsx,jsx}\" \"test/**/*.{ts,tsx,jsx}\"",
+    "lint": "eslint \"{src,test}/**/*.{ts,tsx,jsx}\" --fix",
+    "prepare": "husky",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -15,6 +18,7 @@
     "@mui/base": "^5.0.0-beta.40",
     "@mui/material": "^5.4.0",
     "@mui/styled-engine": "^5.4.0",
+    "commitlint": "^19.5.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0"
@@ -23,16 +27,28 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/react-helmet": "^6.1.11",
-    "@typescript-eslint/eslint-plugin": "^7.13.1",
-    "@typescript-eslint/parser": "^7.13.1",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
     "@vitejs/plugin-react": "^4.3.1",
-    "eslint": "^8.57.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.36.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
-    "husky": "^9.0.11",
-    "prettier": "^3.3.2",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
     "typescript": "^5.2.2",
     "vite": "^5.3.3",
     "vite-tsconfig-paths": "^4.3.2"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
