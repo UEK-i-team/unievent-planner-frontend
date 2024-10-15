@@ -1,0 +1,136 @@
+import * as React from 'react';
+
+import { FormControl, FormControlState } from '@mui/base/FormControl';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import EditIcon from '@mui/icons-material/Edit';
+import Avatar from '@mui/material/Avatar';
+import List from '@mui/material/List';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import ListItemText from '@mui/material/ListItemText';
+
+import {
+  Wrapper,
+  ChangePasswordButton,
+  BackButton,
+  BackButtonWrapper,
+  EditButton,
+  EditButtonWrapper,
+  AvatarWrapper,
+  Item,
+  StyledInput,
+  ChangePasswordForm,
+  SaveChangesButton,
+} from './profileViewStyles';
+
+export const ProfileView = () => {
+  const [showPasswordForm, setShowPasswordForm] = React.useState(false);
+
+  function generate(element: React.ReactElement) {
+    return [0, 1, 2, 3, 4].map((value) =>
+      React.cloneElement(element, {
+        key: value,
+      }),
+    );
+  }
+
+  return (
+    <Wrapper>
+      <BackButtonWrapper>
+        <BackButton>
+          <ArrowBackIcon />
+        </BackButton>
+      </BackButtonWrapper>
+
+      <AvatarWrapper>
+        <Avatar sx={{ width: 130, height: 130 }} src="" />
+        <EditButtonWrapper>
+          <EditButton>
+            <EditIcon />
+          </EditButton>
+        </EditButtonWrapper>
+
+        <h2>Nazwa uzytkownika</h2>
+      </AvatarWrapper>
+
+      <ChangePasswordButton
+        variant="contained"
+        onClick={() => setShowPasswordForm(!showPasswordForm)}
+      >
+        Zmień hasło
+      </ChangePasswordButton>
+
+      {showPasswordForm && (
+        <ChangePasswordForm>
+          <span style={{ alignSelf: 'flex-start', marginBottom: 10 }}>
+            Zmień hasło
+          </span>
+          <FormControl style={{ padding: 5 }} defaultValue="" required>
+            {({ filled }: FormControlState) => (
+              <React.Fragment>
+                <StyledInput
+                  placeholder="hasło"
+                  className={filled ? 'filled' : ''}
+                />
+              </React.Fragment>
+            )}
+          </FormControl>
+          <FormControl style={{ padding: 5 }} defaultValue="" required>
+            {({ filled }: FormControlState) => (
+              <React.Fragment>
+                <StyledInput
+                  placeholder="nowe hasło"
+                  className={filled ? 'filled' : ''}
+                />
+              </React.Fragment>
+            )}
+          </FormControl>
+          <FormControl style={{ padding: 5 }} defaultValue="" required>
+            {({ filled }: FormControlState) => (
+              <React.Fragment>
+                <StyledInput
+                  placeholder="powtórz hasło"
+                  className={filled ? 'filled' : ''}
+                />
+              </React.Fragment>
+            )}
+          </FormControl>
+          <SaveChangesButton variant="contained">
+            Zapisz zmiany
+          </SaveChangesButton>
+        </ChangePasswordForm>
+      )}
+
+      <h2>Grupy w których jesteś starostą:</h2>
+      <List sx={{ width: '100%' }}>
+        {generate(
+          <Item>
+            <ListItemAvatar>
+              <Avatar src={''}></Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              sx={{ wordWrap: 'break-word' }}
+              primary="InformatykaStosowana2023JestSuper!"
+              secondary="42 członków"
+            />
+          </Item>,
+        )}
+      </List>
+
+      <h2>Grupy do których nalezysz:</h2>
+      <List sx={{ width: '100%' }}>
+        {generate(
+          <Item>
+            <ListItemAvatar>
+              <Avatar src={''}></Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              sx={{ wordWrap: 'break-word' }}
+              primary="InformatykaStosowana2023"
+              secondary="Starosta: jankowalski"
+            />
+          </Item>,
+        )}
+      </List>
+    </Wrapper>
+  );
+};
