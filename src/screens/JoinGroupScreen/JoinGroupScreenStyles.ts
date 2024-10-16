@@ -52,7 +52,7 @@ export const GroupCodeField = styled(Input)`
   &::after {
     border-bottom: none !important;
   }
-  border-bottom: 2px solid ${({ theme }) => theme.colors.underline_grey};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.grey_25};
   @media (max-width: 600px) {
     width: 40px;
     height: 40px;
@@ -64,10 +64,10 @@ export const GroupCodeField = styled(Input)`
 `;
 
 export const JoinButton = styled(Button)`
-  background-color: ${({ theme }) => theme.colors.button_red} !important;
-  color: white;
+  background-color: ${({ theme }) => theme.colors.red_100} !important;
+  color: ${({ theme }) => theme.colors.white_100};
   &:hover {
-    background-color: ${({ theme }) => theme.colors.button_red} !important;
+    background-color: ${({ theme }) => theme.colors.red_100} !important;
   }
   margin: 55px 0 15px;
   padding: 16px 0;
@@ -82,7 +82,7 @@ export const JoinButton = styled(Button)`
 `;
 
 export const CreateGroupButton = styled(Button)`
-  border: 1px solid ${({ theme }) => theme.colors.border_grey} !important;
+  border: 1px solid ${({ theme }) => theme.colors.grey_50} !important;
   padding: 16px 0;
   font-size: 18px;
   color: ${({ theme }) => theme.colors.black_100} !important;
@@ -99,11 +99,11 @@ export const CreateGroupButton = styled(Button)`
 
 export const BackButton = styled(IconButton)`
   position: absolute;
-  top: 32px;
-  left: 32px;
+  top: 10px;
+  left: 10px;
   @media (max-width: 600px) {
-    top: 16px;
-    left: 16px;
+    top: 10px;
+    left: 10px;
   }
 `;
 

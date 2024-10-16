@@ -1,8 +1,18 @@
 import { Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Wrapper, Content, GroupCodeInput, GroupCodeField, JoinButton, CreateGroupButton, BackButton, SvgContainer, Logo, StyledTypography } from './JoinGroupScreenStyles';
-
+import {  useRef } from 'react';
 const JoinGroup = () => {
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+    const { value } = e.target;
+    
+    if (value.length === 1 && index < inputRefs.current.length - 1) {
+      inputRefs.current[index + 1]?.focus();
+    }
+  };
+
   return (
     <Wrapper>
       <BackButton>
@@ -18,12 +28,14 @@ const JoinGroup = () => {
           Podaj kod grupy, do której chcesz dołączyć
         </Typography>
         <GroupCodeInput>
-          <GroupCodeField inputProps={{ maxLength: 1 }} />
-          <GroupCodeField inputProps={{ maxLength: 1 }} />
-          <GroupCodeField inputProps={{ maxLength: 1 }} />
-          <GroupCodeField inputProps={{ maxLength: 1 }} />
-          <GroupCodeField inputProps={{ maxLength: 1 }} />
-          <GroupCodeField inputProps={{ maxLength: 1 }} />
+          {Array.from({ length: 6 }).map((_, index) => (
+            <GroupCodeField
+              key={index}
+              inputProps={{ maxLength: 1 }}
+              inputRef={(el: HTMLInputElement | null) => inputRefs.current[index] = el} 
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, index)} 
+            />
+          ))}
         </GroupCodeInput>
         <StyledTypography variant="body1"  gutterBottom>
           Czym jest kod grupy?
