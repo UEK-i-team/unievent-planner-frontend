@@ -1,5 +1,16 @@
-const App = () => {
-  return <h1>Univent Planner</h1>;
+import React from 'react';
+
+import { CssBaseline } from '@mui/material';
+
+import ZarzdzajGrupami from './screens/ManageGroups/ManageGroups';
+
+const App: React.FC = () => {
+  return (
+    <>
+      <CssBaseline />
+      <ZarzdzajGrupami />
+    </>
+  );
 };
 
 export default App;
