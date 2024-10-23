@@ -1,13 +1,16 @@
 import { styled } from '@mui/material';
 import { ListItem, IconButton, Box } from '@mui/material';
 
+import { theme } from '../../assets/styles/theme';
+
 export const Wrapper = styled(Box)`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding: 32px;
+  padding: 20px;
   box-sizing: border-box;
   position: relative;
+  margin: auto;
   @media (max-width: 600px) {
     padding: 16px;
   }
@@ -18,19 +21,19 @@ export const Content = styled(Box)`
   justify-content: center;
   align-items: center;
   flex: 1;
-  width: 100%;
+  width: 95%;
   padding: 16px;
   @media (max-width: 600px) {
     padding: 8px;
   }
 `;
 
-export const BackButton = styled(IconButton)`\
-    position: absolute;
-    border-radius: 9999px;
-    border: 2px solid #bbbbbb;
+export const BackButton = styled(IconButton)`
+  position: absolute;
+  border-radius: 9999px;
+  border: 2px solid ${theme.colors.grey_25};
   @media {
-    color: black;
+    color: ${theme.colors.black_100};
   }
 `;
 export const RemoveButton = styled(IconButton)`
@@ -38,10 +41,10 @@ export const RemoveButton = styled(IconButton)`
 `;
 
 export const Item = styled(ListItem)`
-    position absolute;
-  background-color: #ffcccc;
+  position absolute;
+  background-color: ${theme.colors.red_25};
   border-radius: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 `;
 
 export const BackButtonWrapper = styled(Box)`
