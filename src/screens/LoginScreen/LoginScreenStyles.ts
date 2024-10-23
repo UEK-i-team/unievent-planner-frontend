@@ -1,24 +1,26 @@
 import { Box, Button } from '@mui/material';
 import { styled } from '@mui/system';
 
+import { theme } from '../../assets/styles/theme';
+
 export const Container = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #ffffff;
+  background-color: ${theme.colors.white_100};
 `;
 
 export const Logo = styled('img')`
-  width: 18rem; 
+  width: 18rem;
   height: 18rem;
   margin-bottom: 4rem;
 `;
 
 export const GoogleButton = styled(Button)`
-  background-color: #313334;
-  color: #ffffff;
+  background-color: ${theme.colors.grey_75};
+  color: ${theme.colors.white_100};
   font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
   text-align: center;
@@ -27,12 +29,12 @@ export const GoogleButton = styled(Button)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22rem; 
+  width: 22rem;
   height: 4rem;
   border-radius: 0.6rem;
 
   &:hover {
-    background-color: #1f2021;
+    background-color: ${theme.colors.grey_50};
   }
   img {
     width: 2rem;
