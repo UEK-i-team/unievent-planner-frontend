@@ -1,7 +1,8 @@
 import React from 'react';
-import { CssBaseline } from '@mui/material';
-import LoginScreen from './screens/LoginScreen/LoginScreen';
 
+import { CssBaseline } from '@mui/material';
+
+import LoginScreen from './screens/LoginScreen/LoginScreen';
 
 const App: React.FC = () => {
   return (
